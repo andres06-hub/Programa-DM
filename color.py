@@ -1,3 +1,4 @@
+# Diccionario de colores
 colores = {
     "red":'\033[91m',
     "blue":'\033[94m',

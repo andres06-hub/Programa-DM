@@ -1,22 +1,9 @@
 #Se inicializa el programa
 
-import os, sys
 # Importamos operador para organizar datos en el diccionario
 import operator
-
 import color
-
-# Diccionario de colores
-colores = {
-    "red":'\033[91m',
-    "blue":'\033[94m',
-    "end":'\033[0m'
-}
-
-
-def limpieza_pantalla():
-    if sys.platform.startswith('linux'): 
-        os.system('clear')
+import limpiar_pantalla
 
 def separadores():
     print("="*50)
@@ -65,7 +52,7 @@ def creacion_lista():
         except ValueError:
             # Validar numero ingresado por el usuario, si el numero ES flotante
             # Hara una excepción 
-            print(colores["red"] + '\tXXX ERROR :: DATO INCORRECTO' + ' SOLO numeros' + colores["end"] )
+            print(color.colores["red"] + '\tXXX ERROR :: DATO INCORRECTO' + ' SOLO numeros' + color.colores["end"] )
     # For que me pide los nombres
     for i in range(cantidad_listas):
         name_list = input(f"Nombre de la lista {i+1}: ")
@@ -88,7 +75,7 @@ def creacion_lista():
                     solitar_datos = float(input(f"Ingrese el dato a guardar {i+1}: "))
                     break
                 except ValueError:
-                    print(colores["red"] + "XX ERROR XX solo 'numeros'" + colores["end"])
+                    print(color.colores["red"] + "XX ERROR XX solo 'numeros'" + color.colores["end"])
             
             datos_list.append(solitar_datos)
         # Guardamos la lista de datos en la lista global
@@ -181,16 +168,16 @@ def main():
         # Se valida la opcion ingresada por el usuario
         if not validar_opcion is None:
             print(validar_opcion)
-        desicion = input(colores["blue"] + "\nDesea continuar Si/No ::" + colores["end"] + "\n").lower()
+        desicion = input(color.colores["blue"] + "\nDesea continuar Si/No ::" + color.colores["end"] + "\n").lower()
         
         if(desicion != 'si'):
             # desicion = 'no'
-            limpieza_pantalla()
+            limpiar_pantalla.limpieza_pantalla()
             # Funcion que se encarga de limpiar la pantalla
             print("Hasta pronto!!")
             break
         else:
-            limpieza_pantalla()
+            limpiar_pantalla.limpieza_pantalla()
 
 
 if __name__ == "__main__":
