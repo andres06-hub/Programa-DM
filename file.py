@@ -4,6 +4,8 @@ import os, sys
 # Importamos operador para organizar datos en el diccionario
 import operator
 
+import color
+
 # Diccionario de colores
 colores = {
     "red":'\033[91m',
